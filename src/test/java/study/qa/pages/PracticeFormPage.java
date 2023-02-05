@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import study.qa.pages.components.CalendarComponent;
 import study.qa.pages.components.ModalComponent;
 import study.qa.pages.components.SubjectComponent;
+import java.io.File;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -82,8 +83,10 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage selectFileToUpload(String file) {
-        buttonUploadPicture.uploadFromClasspath(file);
+    public PracticeFormPage selectFileToUpload(String fileName) {
+//        buttonUploadPicture.uploadFromClasspath(fileName);
+        File file = new File("src/test/resources/" + fileName);
+        buttonUploadPicture.uploadFile(file);
         return this;
     }
 

@@ -113,7 +113,7 @@ public class PracticeFormTest extends BaseTest {
                         + year, () -> {
             formPage.fillDate(day, month, year);
         });
-        step("Загружаем файл " + firstName, () -> {
+        step("Загружаем файл " + fileName, () -> {
             formPage.selectFileToUpload(fileName);
         });
         step("Выбираем штат из списка", () -> {
