@@ -50,7 +50,7 @@ public class PracticeFormTest extends BaseTest {
                 email = randomEmail(),
                 phoneNumber = randomPhoneNumber(),
                 address = randomFullAddress(),
-                fileName = "img/cat.jpg",
+                fileName = "cat.jpg",
                 day = randomDay(),
                 month = randomMonth(),
                 year = randomBirthYear();
@@ -114,7 +114,7 @@ public class PracticeFormTest extends BaseTest {
             formPage.fillDate(day, month, year);
         });
         step("Загружаем файл " + fileName, () -> {
-            formPage.selectFileToUpload(fileName);
+            formPage.selectFileToUpload("img/" + fileName);
         });
         step("Выбираем штат из списка", () -> {
             formPage.selectFirstState();
