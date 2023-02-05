@@ -36,7 +36,7 @@ public class PracticeFormTest extends BaseTest {
     }
 
     @Test
-    @Tags({@Tag("BLOCKER"), @Tag("SUBMIT_FORM_TEST")})
+    @Tags({@Tag("BLOCKER"), @Tag("SUBMIT_FORM")})
     @Feature("Заполнение формы")
     @Story("Заполнение формы генерируемыми данными")
     @Owner("Dmitry Mikhaylov")
