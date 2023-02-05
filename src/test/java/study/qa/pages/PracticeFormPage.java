@@ -84,7 +84,7 @@ public class PracticeFormPage {
     }
 
     public PracticeFormPage selectFileToUpload(String fileName) {
-        buttonUploadPicture.uploadFromClasspath("img/"+fileName);
+        buttonUploadPicture.uploadFromClasspath(fileName);
 //        File file = new File("src/test/resources/" + fileName);
 //        buttonUploadPicture.uploadFile(file);
         return this;

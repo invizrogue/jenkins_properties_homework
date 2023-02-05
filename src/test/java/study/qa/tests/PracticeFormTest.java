@@ -50,7 +50,7 @@ public class PracticeFormTest extends BaseTest {
                 email = randomEmail(),
                 phoneNumber = randomPhoneNumber(),
                 address = randomFullAddress(),
-                fileName = "cat_notebook.jpeg",
+                fileName = "img/cat.jpg",
                 day = randomDay(),
                 month = randomMonth(),
                 year = randomBirthYear();
