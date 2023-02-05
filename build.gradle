@@ -50,6 +50,10 @@ tasks.withType(Test) {
     }
 }
 
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
 task submit_form_test(type: Test) {
     useJUnitPlatform{
         includeTags("SUBMIT_FORM")
