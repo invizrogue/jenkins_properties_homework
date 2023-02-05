@@ -1,8 +1,17 @@
 package study.qa.base;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import study.qa.base.utils.Attach;
+
 import java.util.Map;
+
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static io.qameta.allure.Allure.step;
 
 abstract public class BaseTest {
 
@@ -22,5 +31,26 @@ abstract public class BaseTest {
                 "enableVideo", true         // включает запись видео
         ));
         Configuration.browserCapabilities = capabilities;
+    }
+
+    @BeforeEach
+    public void init() {
+        step("Конфигурируем вебдрайвер", () -> {
+            setUp();
+            SelenideLogger.addListener("allure", new AllureSelenide());
+        });
+    }
+
+    @AfterEach
+    public void tearDown() {
+        step("Формируем вложения для отчёта", () -> {
+            Attach.screenshotAs("Last screenshot");
+            Attach.pageSource();
+            Attach.browserConsoleLogs();
+            Attach.addVideo();
+        });
+        step("Закрываем браузер", () -> {
+            closeWebDriver();
+        });
     }
 }

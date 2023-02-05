@@ -1,11 +1,8 @@
 package study.qa.tests;
 
-import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.*;
-import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import study.qa.base.BaseTest;
-import study.qa.base.utils.Attach;
 import study.qa.pages.PracticeFormPage;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -13,27 +10,6 @@ import static io.qameta.allure.Allure.step;
 import static study.qa.base.utils.RandomUtils.*;
 
 public class PracticeFormTest extends BaseTest {
-
-    @BeforeEach
-    public void init() {
-        step("Конфигурируем вебдрайвер", () -> {
-            setUp();
-            SelenideLogger.addListener("allure", new AllureSelenide());
-        });
-    }
-
-    @AfterEach
-    public void tearDown() {
-        step("Формируем вложения для отчёта", () -> {
-            Attach.screenshotAs("Last screenshot");
-            Attach.pageSource();
-            Attach.browserConsoleLogs();
-            Attach.addVideo();
-        });
-        step("Закрываем браузер", () -> {
-            closeWebDriver();
-        });
-    }
 
     @Test
     @Tags({@Tag("BLOCKER"), @Tag("SUBMIT_FORM")})
